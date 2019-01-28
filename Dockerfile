@@ -7,7 +7,7 @@ USER root
 RUN set -xe \
     && apk add --no-cache ca-certificates
 COPY --from=builder /go/bin/v2ray-plugin /usr/local/bin
-ENV V2RAY_OPTS="server"
+ENV PLUGIN_OPTS="server"
 USER nobody
 CMD exec ss-server \
     -s $SERVER_ADDR \
@@ -18,5 +18,5 @@ CMD exec ss-server \
     --fast-open \
     -d $DNS_ADDRS \
     -u \
-    $V2RAY_OPTS \
+    $PLUGIN_OPTS \
     $ARGS
