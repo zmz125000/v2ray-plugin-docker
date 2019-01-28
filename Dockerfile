@@ -7,7 +7,8 @@ USER root
 RUN set -xe \
     && apk add --no-cache ca-certificates
 COPY --from=builder /go/bin/v2ray-plugin /usr/local/bin
-ENV PLUGIN_OPTS="server"
+ENV PLUGIN_OPTS="server" \
+    V2RAY_HOST=
 USER nobody
 CMD exec ss-server \
     -s $SERVER_ADDR \
