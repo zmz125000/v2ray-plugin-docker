@@ -19,6 +19,5 @@ CMD exec ss-server \
     -t $TIMEOUT \
     --fast-open \
     -d $DNS_ADDRS \
-    -u \
     $PLUGIN_OPTS \
     $ARGS
